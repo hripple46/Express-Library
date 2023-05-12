@@ -9,6 +9,15 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+import mongoose from 'mongoose';
+mongoose.set("strictQuery", false);
+const mongoDB = "mongodb+srv://hripple46:CmzYXyBxBqlHJbZ6@cluster0.hiko7bj.mongodb.net/local_library?retryWrites=true&w=majority"
+
+main().catch(err => console.log(err));
+const main = async () => {
+  await mongoose.connect(mongoDB);
+} 
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -39,3 +48,6 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+mongodb+srv://hripple46:CmzYXyBxBqlHJbZ6@cluster0.hiko7bj.mongodb.net/local_library?retryWrites=true&w=majority
+
